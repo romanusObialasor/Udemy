@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
@@ -8,52 +8,72 @@ import HeaderNav from "./HeaderNav";
 import Fade from "react-reveal/Fade";
 
 const HeaderMain = () => {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
   const toggle = () => {
     setShow(!show);
   };
   return (
-    <Container>
+    <>
       <Fade left when={show}>
-        <HeaderNav />
+        {/* <Position> */}
+        <HeaderNav toggle={toggle} />
+        {/* </Position> */}
       </Fade>
-      <Wrapper>
-        <Menu>
-          <FiMenu onClick={toggle} />
-        </Menu>
-        <Logo src="/images/logo-udemy.svg" />
-        <span>Categories</span>
-        <Search>
-          <AiOutlineSearch />
-          <SearchInput placeholder="Search for anything" />
-        </Search>
-        <span>Udemy Budiness</span>
-        <span>Teach on Udemy</span>
-        <Cart>
-          <Menu>
-            <AiOutlineSearch />
-          </Menu>
-          <HiOutlineShoppingCart />
-        </Cart>
-        <Login>Log in</Login>
-        <SignUp>SignUp</SignUp>
-        <Lang>
-          <VscGlobe />
-        </Lang>
-      </Wrapper>
-    </Container>
+      <Header>
+        <Container>
+          <Wrapper>
+            <Menu>
+              <FiMenu onClick={toggle} />
+            </Menu>
+            <Logo src="/images/logo-udemy.svg" />
+            <span>Categories</span>
+            <Search>
+              <AiOutlineSearch />
+              <SearchInput placeholder="Search for anything" />
+            </Search>
+            <span>Udemy Budiness</span>
+            <span>Teach on Udemy</span>
+            <Cart>
+              <Menu>
+                <AiOutlineSearch />
+              </Menu>
+              <HiOutlineShoppingCart />
+            </Cart>
+            <Login>Log in</Login>
+            <SignUp>SignUp</SignUp>
+            <Lang>
+              <VscGlobe />
+            </Lang>
+          </Wrapper>
+        </Container>
+      </Header>
+    </>
   );
 };
 
 export default HeaderMain;
+const Header = styled.div`
+  z-index: 1;
+  position: relative;
+`;
+
+const Position = styled.div`
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: red;
+  z-index: 1;
+`;
 
 const Container = styled.div`
   width: 100%;
+  /* z-index: -1; */
+  /* position: relative; */
   height: 70px;
   /* background-color: red; */
   display: flex;
   justify-content: center;
-  position: relative;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 `;
 
@@ -65,6 +85,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  /* z-index: -1; */
 
   span {
     font-size: 14px;

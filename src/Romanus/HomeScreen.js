@@ -7,4 +7,6 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const Container = styled.div``;
+const Container = styled.div`
+  background: red;
+`;
