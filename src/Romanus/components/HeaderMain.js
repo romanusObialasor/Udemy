@@ -14,11 +14,16 @@ const HeaderMain = () => {
   };
   return (
     <>
-      <Fade left when={show}>
-        {/* <Position> */}
-        <HeaderNav toggle={toggle} />
-        {/* </Position> */}
-      </Fade>
+      {show ? (
+        <Position>
+          <HeaderNav toggle={toggle} />
+        </Position>
+      ) : null}
+      {/* <Fade left when={show}>
+        <Position>
+          <HeaderNav toggle={toggle} />
+        </Position>
+      </Fade> */}
       <Header>
         <Container>
           <Wrapper>
@@ -53,7 +58,7 @@ const HeaderMain = () => {
 
 export default HeaderMain;
 const Header = styled.div`
-  z-index: 1;
+  z-index: -1;
   position: relative;
 `;
 
@@ -68,8 +73,8 @@ const Position = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  /* z-index: -1; */
-  /* position: relative; */
+  /* z-index: -1;
+  position: relative; */
   height: 70px;
   /* background-color: red; */
   display: flex;
