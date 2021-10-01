@@ -12,8 +12,8 @@ const App = () => {
         <HeaderMain />
         <Switch>
           <Route exact path="/" component={HomeScreen} />
-          {/* <Route exact path="/sign" component={SignIn} /> */}
-          <Route exact path="/teacher" component={JudithHome} />
+          <Route exact path="/sign" component={SignIn} />
+          {/* <Route exact path="/teacher" component={JudithHome} /> */}
         </Switch>
       </BrowserRouter>
     </div>

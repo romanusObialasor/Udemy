@@ -14,7 +14,10 @@ const FakeCard = () => {
 
 export default FakeCard;
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-right: 20px;
+  margin-top: 20px;
+`;
 
 const Wrapper = styled.div`
   background-color: #f8f9fb;
