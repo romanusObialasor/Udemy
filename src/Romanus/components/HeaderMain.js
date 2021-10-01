@@ -6,6 +6,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { VscGlobe } from "react-icons/vsc";
 import HeaderNav from "./HeaderNav";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 const HeaderMain = () => {
   const [show, setShow] = useState(false);
@@ -30,14 +31,18 @@ const HeaderMain = () => {
             <Menu>
               <FiMenu onClick={toggle} />
             </Menu>
-            <Logo src="/images/logo-udemy.svg" />
+            <MyLinker to="/">
+              <Logo src="/images/logo-udemy.svg" />
+            </MyLinker>
             <span>Categories</span>
             <Search>
               <AiOutlineSearch />
               <SearchInput placeholder="Search for anything" />
             </Search>
             <span>Udemy Budiness</span>
-            <span>Teach on Udemy</span>
+            <MyLink to="/teacher">
+              <span>Teach on Udemy</span>
+            </MyLink>
             <Cart>
               <Menu>
                 <AiOutlineSearch />
@@ -57,8 +62,19 @@ const HeaderMain = () => {
 };
 
 export default HeaderMain;
+
+const MyLinker = styled(Link)`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MyLink = styled(Link)`
+  text-decoration: none;
+`;
 const Header = styled.div`
-  z-index: -1;
+  z-index: 1;
   position: relative;
 `;
 
@@ -96,6 +112,7 @@ const Wrapper = styled.div`
   span {
     font-size: 14px;
     cursor: pointer;
+    text-decoration: none;
     :hover {
       color: #a58ae6;
     }

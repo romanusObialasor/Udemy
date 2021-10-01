@@ -27,21 +27,14 @@ export default Land;
 const Container = styled.div`
   width: 100%;
   height: 60vh;
-  /* padding-top: 20px; */
-  /* background-color: red; */
-  /* position: relative; */
 `;
 
 const Wrapper = styled.div`
-  /* background-color: red; */
   height: 100%;
   width: 600px;
-  /* min-width: 300px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
-  /* margin-top: 20px; */
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 200px;

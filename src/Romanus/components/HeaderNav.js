@@ -102,18 +102,14 @@ const Wrapper = styled.div`
   width: 300px;
   height: 100%;
   background-color: white;
-  /* padding-left: 15px; */
-  /* padding-top: 15px; */
   overflow-y: scroll;
   position: absolute;
 
   span {
-    /* background-color: red; */
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding-right: 20px; */
     color: rgba(0, 0, 0, 0.7);
     font-weight: 600;
   }
