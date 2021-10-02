@@ -62,6 +62,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   flex-direction: ${({ rv }) => (rv ? "row" : "row-reverse")};
   /* background-color: green; */
+  /* flex-wrap: wrap; */
 `;
 const Image = styled.img``;
 const Content = styled.div`

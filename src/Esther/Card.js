@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import styled from "styled-components";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import app from "../base"
+import { Link } from "react-router-dom";
 
 const Card = () => {
 const [limit, setLimit] = useState([])
@@ -66,10 +67,10 @@ console.log("this is the data", data);
 
 }, []);
   return (
-    <Container>
+    <Container >
       {
         limit.map(({id, avatar,title, rate,amount, teacher})=>(
-          <Wrapper key={id}>
+          <Wrapper key={id} to={`/details/${id}`}>
       <img src={avatar}alt="woman" />
       <Title>{title}</Title>
       <Teacher>{teacher}</Teacher>
@@ -93,7 +94,7 @@ console.log("this is the data", data);
 };
 
 export default Card;
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
 margin: 10px;
 width: 225px;
   /* background-color: red; */

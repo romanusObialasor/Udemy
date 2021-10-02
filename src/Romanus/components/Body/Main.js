@@ -22,7 +22,7 @@ const Main = () => {
   useEffect(() => {
     fetchData();
     console.log(data);
-  });
+  }, []);
   return (
     <Container>
       <Wrapper>
@@ -103,7 +103,7 @@ export default Main;
 const StudentCard = styled.div`
   margin-top: 30px;
   justify-content: space-between;
-
+  flex-wrap: wrap;
   display: flex;
 `;
 

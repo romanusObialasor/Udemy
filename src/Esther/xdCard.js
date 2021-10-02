@@ -69,7 +69,7 @@ console.log("this is the data", data);
     <Container>
       {
         xd.map(({id, avatar,title, rate,amount, teacher})=>(
-          <Wrapper key={id}>
+          <Wrapper key={id} to={`/details/${id}`}>
       <img src={avatar}alt="woman" />
       <Title>{title}</Title>
       <Teacher>{teacher}</Teacher>

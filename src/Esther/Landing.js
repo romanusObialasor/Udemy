@@ -55,14 +55,13 @@ const Landing = () => {
         <Carder />
         <Recommend> Topics Recommended For You</Recommend>
         <TopicRec>
-          <Link to="/describe">
-            <Holders>Javascript</Holders>
-          </Link>
-          <Holders>Python</Holders>
-          <Holders>CSS</Holders>
-          <Holders>Reactjs</Holders>
-          <Holders>Nodejs</Holders>
-          <Holders>HTML</Holders>
+          <Holders to="/describe">Javascript</Holders>
+
+          <Holders to="/describe">Python</Holders>
+          <Holders to="/describe">CSS</Holders>
+          <Holders to="/describe">Reactjs</Holders>
+          <Holders to="/describe">Nodejs</Holders>
+          <Holders to="/describe">HTML</Holders>
         </TopicRec>
         <BigCard />
         <Recommend>Top Design Courses In Design</Recommend>
@@ -75,7 +74,7 @@ const Landing = () => {
 };
 
 export default Landing;
-const Holders = styled.div`
+const Holders = styled(Link)`
   height: 50px;
   width: 200px;
   border: 1px solid black;
@@ -88,6 +87,7 @@ const Holders = styled.div`
   transform: scale(1);
   transition: all 350ms;
   margin: 5px;
+  text-decoration: none;
   :hover {
     cursor: pointer;
     background-color: gray;
