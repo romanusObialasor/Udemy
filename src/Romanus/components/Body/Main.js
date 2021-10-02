@@ -7,22 +7,41 @@ import Others from "./Others";
 
 const Main = () => {
   const [data, setData] = useState([]);
-  const fetchData = async () => {
+  const [othersData, setOthersData] = useState([]);
+  const fetchCssData = async () => {
     await app
       .firestore()
-      .collection("udemyCollection")
-      .onSnapshot((snapshot) => {
+      .collection("udemyCourses")
+      .orderBy("category")
+      .startAt("css")
+      .endAt("css")
+      .onSnapshot((snap) => {
         const item = [];
-        snapshot.forEach((doc) => {
+        snap.forEach((doc) => {
           item.push({ ...doc.data(), id: doc.id });
         });
         setData(item);
       });
   };
+  const fetchLimit = async () => {
+    await app
+      .firestore()
+      .collection("udemyCourses")
+      .limit(5)
+      .onSnapshot((snap) => {
+        const item = [];
+        snap.forEach((doc) => {
+          item.push({ ...doc.data(), id: doc.id });
+        });
+        setOthersData(item);
+      });
+  };
   useEffect(() => {
-    fetchData();
+    fetchCssData();
+    fetchLimit();
     console.log(data);
   }, []);
+
   return (
     <Container>
       <Wrapper>
@@ -53,11 +72,14 @@ const Main = () => {
               Python's design philosophy emphasize
             </Content>
             <Offers>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              {data.map((item) => (
+                <Card
+                  image={item.avatar}
+                  title={item.title}
+                  teacher={item.teacher}
+                  rate={item.rate}
+                />
+              ))}
             </Offers>
           </Display>
           <OtherContent>
@@ -66,11 +88,14 @@ const Main = () => {
           <Student>
             <Title>Student are viewing</Title>
             <StudentCard>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              {othersData.map((item) => (
+                <Card
+                  image={item.avatar}
+                  title={item.title}
+                  teacher={item.teacher}
+                  rate={item.rate}
+                />
+              ))}
             </StudentCard>
           </Student>
           <Cards>

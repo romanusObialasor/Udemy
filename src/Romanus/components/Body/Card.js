@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 
-const Card = () => {
+const Card = ({ image, title, teacher, rate }) => {
   return (
     <Container>
-      <img src="/images/student.jpg" alt="woman" />
-      <Title>The Complete 2021 Web Development Bootcamp</Title>
-      <Teacher>Romanus Obialasr</Teacher>
+      <img src={image} alt="woman" />
+      <Title>{title}</Title>
+      <Teacher>{teacher}</Teacher>
       <Ratings>
-        <NumRate>4.2</NumRate>
+        <NumRate>{rate}</NumRate>
         <Rate>
           <BsStarFill />
           <BsStarFill />
