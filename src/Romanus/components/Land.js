@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   align-items: center;
   @media screen and (max-width: 768px) {
     width: 100%;
-    height: 200px;
+    height: auto;
   }
 `;
 
@@ -59,10 +59,12 @@ const Head = styled.div`
   font-size: 40px;
   line-height: 50px;
   color: #1c1d1f;
+  margin-bottom: 5px;
 `;
 
 const Content = styled.div`
   font-size: 19px;
+  margin-bottom: 5px;
 `;
 
 const Search = styled.div`
@@ -75,6 +77,7 @@ const Search = styled.div`
   padding-right: 20px;
   width: 80%;
   font-size: 15px;
+  margin-bottom: 5px;
 `;
 
 const Left = styled.div`
@@ -88,7 +91,7 @@ const Left = styled.div`
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   @media screen and (max-width: 768px) {
     width: 100%;
-    height: 200px;
+    height: auto;
   }
 `;
 

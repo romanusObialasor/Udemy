@@ -39,6 +39,7 @@ const Container = styled.div`
   width: 250px;
   /* background-color: red; */
   height: 300px;
+  margin-right: 5px;
   img {
     width: 100%;
     height: 130px;

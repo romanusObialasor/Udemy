@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HeaderMain from "./Romanus/components/HeaderMain";
 import HomeScreen from "./Romanus/HomeScreen";
 import SignIn from "./Goodluck/SignIn";
-import JudithHome from "./Judith/JudithHome";
+import Description from "./Judith2/Component/Description";
+import Landing from "./Esther/Landing";
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/sign" component={SignIn} />
-          {/* <Route exact path="/teacher" component={JudithHome} /> */}
+          <Route exact path="/description" component={Description} />
+          <Route exact path="/v1" component={Landing} />
         </Switch>
       </BrowserRouter>
     </div>

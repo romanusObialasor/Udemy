@@ -72,6 +72,7 @@ const MyLinker = styled(Link)`
 
 const MyLink = styled(Link)`
   text-decoration: none;
+  color: black;
 `;
 const Header = styled.div`
   z-index: 1;

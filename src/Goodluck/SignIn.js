@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Input, Button } from "antd";
 import img from "./google-logo.png";
 import firebase from "firebase";
-import app from "./base";
+import app from "../base";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");

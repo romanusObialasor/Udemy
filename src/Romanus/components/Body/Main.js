@@ -49,6 +49,10 @@ const Main = () => {
             <Title>Student are viewing</Title>
             <StudentCard>
               <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
             </StudentCard>
           </Student>
           <Cards>
@@ -79,16 +83,26 @@ export default Main;
 // const Container = styled.div``
 
 const StudentCard = styled.div`
-  margin-top: 20px;
+  margin-top: 30px;
+  justify-content: space-between;
+
+  display: flex;
 `;
 
-const Student = styled.div``;
+const Student = styled.div`
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+`;
 
 const OtherContent = styled.div``;
 
 const Content = styled.div`
   font-size: 17px;
   max-width: 1000px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const Title = styled.div`
@@ -97,12 +111,25 @@ const Title = styled.div`
   font-size: 25px;
   line-height: 40px;
   color: #1c1d1f;
+  @media screen and (max-width: 760px) {
+    width: 300px;
+    display: flex;
+    background-color: aliceblue;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 `;
 
 const Offers = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  /* background-color: red; */
 `;
 
 const Cat = styled.div`
@@ -117,11 +144,12 @@ const Cat = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: auto;
   /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 `;
 
 const Wrapper = styled.div`
@@ -167,10 +195,10 @@ const Nav = styled.div`
   }
 `;
 const Display = styled.div`
-  width: 90;
+  width: 95%;
   height: 450px;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  min-height: 100%;
+  min-height: auto;
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -178,6 +206,10 @@ const Display = styled.div`
   flex-direction: column;
   padding: 30px;
   /* padding-right: 20px; */
+  @media screen and (max-width: 760px) {
+    height: 100%;
+    align-items: center;
+  }
 `;
 
 const Cards = styled.div`
