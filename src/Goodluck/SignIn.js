@@ -4,13 +4,17 @@ import { Input, Button } from "antd";
 import img from "./google-logo.png";
 import firebase from "firebase";
 import app from "../base";
-
+import { BsFillLockFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import { FaFacebookF } from "react-icons/fa";
+import { AiFillApple, AiOutlineGoogle } from "react-icons/ai";
+import SignUp1 from "./SignUp1";
+import { useHistory } from "react-router-dom";
 const SignUp = () => {
+  const history = useHistory();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [toggle, setToggle] = useState(false);
 
   const onSignUp = async () => {
     const signedUser = await app
@@ -28,6 +32,7 @@ const SignUp = () => {
     setFullName("");
     setEmail("");
     setPassword("");
+    history.push("/v1");
   };
 
   const onSignIn = async () => {
@@ -40,50 +45,93 @@ const SignUp = () => {
   };
 
   return (
-    <Container>
-      <Wrapper>
-        <Holder1>
-          <Text>Log In to Your Udemy Account!</Text>
-        </Holder1>
-        <Holder>
-          <Line></Line>
-        </Holder>
-        <BoxHolder onClick={signUpWithGoogle}>
-          <Icon src={img} />
-          <Word>Continue with Google</Word>
-        </BoxHolder>
-        <Inputs>
-          <MyInput
-            type="text"
-            placeholder="Email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            value={email}
-          />
-          <MyInput
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            value={password}
-          />
-          <MyButton onClick={onSignIn}>Log In</MyButton>
-        </Inputs>
-        <Forget>
-          or <span>Forgot Password</span>
-        </Forget>
-        <Account>
-          Don't have an account?{" "}
-          <span>Sign up Log in with your organization</span>
-        </Account>
-      </Wrapper>
-    </Container>
+    <>
+      <Container>
+        <Wrapper>
+          <Holder1>
+            <Text>Log In to Your Udemy Account!</Text>
+          </Holder1>
+          <Holder>
+            <Line></Line>
+          </Holder>
+          <BoxHolder onClick={signUpWithGoogle}>
+            <Icons>
+              <FaFacebookF />
+            </Icons>
+            <Word>Continue with Facebook</Word>
+          </BoxHolder>
+          <BoxHolder>
+            <Icons>
+              <AiOutlineGoogle />
+            </Icons>
+            <Word>Continue with Google</Word>
+          </BoxHolder>
+          <BoxHolder>
+            <Icons>
+              <AiFillApple />
+            </Icons>
+            <Word>Continue with Apple</Word>
+          </BoxHolder>
+          <Inputs>
+            <Inputer>
+              <Lock>
+                <BsFillLockFill />
+              </Lock>
+              <MyInput
+                type="text"
+                placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                value={email}
+              />
+            </Inputer>
+            <Inputer>
+              <Lock>
+                <MdEmail />
+              </Lock>
+              <MyInput
+                type="password"
+                placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                value={password}
+              />
+            </Inputer>
+            <MyButton onClick={onSignIn}>Log In</MyButton>
+          </Inputs>
+          <Forget>
+            or <span>Forgot Password</span>
+          </Forget>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 
 export default SignUp;
+
+const Icons = styled.div`
+  font-size: 25px;
+`;
+
+const Lock = styled.div`
+  margin-left: 10px;
+`;
+
+const Inputer = styled.div`
+  width: 350px;
+  height: 50px;
+  background-color: transparent;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  z-index: 1;
+  margin-top: 15px;
+`;
 
 const Container = styled.div`
   height: 100%;
@@ -126,18 +174,25 @@ const Inputs = styled.div`
 `;
 
 const MyInput = styled(Input)`
-  width: 350px;
-  height: 40px;
-  margin: 10px 0;
+  flex: 1;
+  height: 90%;
+  border: none;
+  margin-left: 10px;
+  outline: none;
+  ::placeholder {
+    font-size: 18px;
+  }
 `;
 
-const MyButton = styled(Button)`
+const MyButton = styled.div`
   width: 350px;
   height: 50px;
   margin: 10px 0;
   background-color: #7325a3;
-  border-radius: 5px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   &:hover {
     background-color: purple;
@@ -178,6 +233,7 @@ const Terms = styled.div`
 
 const Already = styled.div`
   margin-bottom: 40px;
+  display: flex;
   span {
     color: #6b8fd9;
     font-weight: bold;
@@ -195,10 +251,13 @@ const Forget = styled.div`
 const Account = styled.div`
   width: 40%;
   padding-top: 20px;
+  display: flex;
+  width: auto;
   span {
     color: #401ba9;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 5px;
   }
 `;
 
@@ -207,8 +266,11 @@ const BoxHolder = styled.div`
   height: 50px;
   background-color: white;
   cursor: pointer;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Icon = styled.img`

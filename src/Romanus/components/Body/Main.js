@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import app from "../../../base";
 import Card from "./Card";
 import FakeCard from "./FakeCard";
 import Others from "./Others";
 
 const Main = () => {
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    await app
+      .firestore()
+      .collection("udemyCollection")
+      .onSnapshot((snapshot) => {
+        const item = [];
+        snapshot.forEach((doc) => {
+          item.push({ ...doc.data(), id: doc.id });
+        });
+        setData(item);
+      });
+  };
+  useEffect(() => {
+    fetchData();
+    console.log(data);
+  });
   return (
     <Container>
       <Wrapper>

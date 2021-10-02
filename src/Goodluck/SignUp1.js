@@ -5,16 +5,10 @@ import img from "./google-logo.png";
 import firebase from "firebase";
 import app from "../base";
 
-const SignUp = () => {
+const SignUp1 = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [toggle, setToggle] = useState(false);
-
-  const onToggle = () => {
-    setToggle(!toggle);
-  };
 
   const onSignUp = async () => {
     const signedUser = await app
@@ -45,129 +39,82 @@ const SignUp = () => {
 
   return (
     <Container>
-      {toggle ? (
-        <Wrapper>
-          <Holder1>
-            <Text>Sign Up and Start Learning!</Text>
-          </Holder1>
-          <Holder>
-            <Line></Line>
-          </Holder>
-          <Inputs>
-            <MyInput
-              type="text"
-              placeholder="Full Name"
-              onChange={(e) => {
-                setFullName(e.target.value);
-              }}
-              value={fullName}
-            />
-            <MyInput
-              type="text"
-              placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-            />
-            <MyInput
-              type="password"
-              placeholder="Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-            />
-            <Holder2>
-              <Lines></Lines>
-              <Lines></Lines>
-              <Lines></Lines>
-              <Lines></Lines>
-            </Holder2>
+      <Wrapper>
+        <Holder1>
+          <Text>Sign Up and Start Learning!</Text>
+        </Holder1>
+        <Holder>
+          <Line></Line>
+        </Holder>
+        <Inputs>
+          <MyInput
+            type="text"
+            placeholder="Full Name"
+            onChange={(e) => {
+              setFullName(e.target.value);
+            }}
+            value={fullName}
+          />
+          <MyInput
+            type="text"
+            placeholder="Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+          />
+          <MyInput
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            value={password}
+          />
+          <Holder2>
+            <Lines></Lines>
+            <Lines></Lines>
+            <Lines></Lines>
+            <Lines></Lines>
+          </Holder2>
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            {" "}
+            <div style={{ marginTop: "20px", marginLeft: "30px" }}>
+              {" "}
+              <input type="checkbox"></input>{" "}
+            </div>
             <div
               style={{
-                display: "flex",
+                marginTop: "20px",
+                width: "350px",
+                marginLeft: "30px",
+                fontSize: "14px",
               }}
             >
-              {" "}
-              <div style={{ marginTop: "20px", marginLeft: "30px" }}>
-                {" "}
-                <input type="checkbox"></input>{" "}
-              </div>
-              <div
-                style={{
-                  marginTop: "20px",
-                  width: "350px",
-                  marginLeft: "30px",
-                  fontSize: "14px",
-                }}
-              >
-                Yes! I want to get the most out of Udemy by receiving emails
-                with exclusive deals, personal recommendations and learning
-                tips!
-              </div>
+              Yes! I want to get the most out of Udemy by receiving emails with
+              exclusive deals, personal recommendations and learning tips!
             </div>
-            <MyButton onClick={onSignUp}>Sign Up</MyButton>
-          </Inputs>
+          </div>
+          <MyButton onClick={onSignUp}>Sign Up</MyButton>
+        </Inputs>
 
-          <Terms>
-            By signing up, you agree to our <span>Terms of Use</span> and{" "}
-            <span>Privacy Policy</span>.
-          </Terms>
-          <Holder>
-            <Line></Line>
-          </Holder>
-          <Already>
-            Already have an account? <span onClick={onToggle}>Log In</span>
-          </Already>
-        </Wrapper>
-      ) : (
-        <Wrapper>
-          <Holder1>
-            <Text>Log In to Your Udemy Account!</Text>
-          </Holder1>
-          <Holder>
-            <Line></Line>
-          </Holder>
-          <BoxHolder onClick={signUpWithGoogle}>
-            <Icon src={img} />
-            <Word>Continue with Google</Word>
-          </BoxHolder>
-          <Inputs>
-            <MyInput
-              type="text"
-              placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-            />
-            <MyInput
-              type="password"
-              placeholder="Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-            />
-            <MyButton onClick={onSignIn}>Log In</MyButton>
-          </Inputs>
-          <Forget>
-            or <span>Forgot Password</span>
-          </Forget>
-          <Account>
-            Don't have an account?{" "}
-            <span onClick={onToggle}>
-              Sign up Log in with your organization
-            </span>
-          </Account>
-        </Wrapper>
-      )}
+        <Terms>
+          By signing up, you agree to our <span>Terms of Use</span> and{" "}
+          <span>Privacy Policy</span>.
+        </Terms>
+        <Holder>
+          <Line></Line>
+        </Holder>
+      </Wrapper>
     </Container>
   );
 };
 
-export default SignUp;
+export default SignUp1;
 
 const Container = styled.div`
   height: 100%;

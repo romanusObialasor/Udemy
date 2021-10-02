@@ -40,7 +40,7 @@ const HeaderMain = () => {
               <SearchInput placeholder="Search for anything" />
             </Search>
             <span>Udemy Budiness</span>
-            <MyLink to="/teacher">
+            <MyLink to="/teachOnUdemy">
               <span>Teach on Udemy</span>
             </MyLink>
             <Cart>
@@ -49,8 +49,12 @@ const HeaderMain = () => {
               </Menu>
               <HiOutlineShoppingCart />
             </Cart>
-            <Login>Log in</Login>
-            <SignUp>SignUp</SignUp>
+            <MyLink to="/login">
+              <Login>Log in</Login>
+            </MyLink>
+            <MyLink to="/sign">
+              <SignUp>SignUp</SignUp>
+            </MyLink>
             <Lang>
               <VscGlobe />
             </Lang>
@@ -73,6 +77,10 @@ const MyLinker = styled(Link)`
 const MyLink = styled(Link)`
   text-decoration: none;
   color: black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Header = styled.div`
   z-index: 1;
